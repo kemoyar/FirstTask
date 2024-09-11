@@ -1,0 +1,13 @@
+<project name="test" default="run">
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/Main.jar" basedir="out\production\FirstTask">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="run" depends="jar">
+        <java jar="build/jar/Main.jar" fork="true"/>
+    </target>
+</project>
