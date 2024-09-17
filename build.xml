@@ -1,5 +1,15 @@
 <project name="test" default="run">
-    <target name="jar">
+
+    <target name="clean">
+        <delete dir="out"/>
+	<mkdir dir="out\production\FirstTask"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <javac srcdir="src" destdir="out\production\FirstTask"/>
+    </target>
+
+    <target name="jar" depends="compile">
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/Main.jar" basedir="out\production\FirstTask">
             <manifest>
